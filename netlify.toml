@@ -1,0 +1,8 @@
+[build]
+  command = "yarn prod"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/404/"
+  status = 404
