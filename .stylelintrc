@@ -1,0 +1,42 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "block-no-empty": ,
+    "selector-type-no-unknown": ,
+    "selector-pseudo-element-no-unknown": ,
+    "rule-empty-line-before": [
+      "always-multi-line", {
+        "except": ["first-nested"],
+        "ignore": ["after-comment", "inside-block"]
+      }
+    ],
+    "block-closing-brace-empty-line-before": ,
+    "at-rule-empty-line-before": ,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-url-quotes": "always",
+    "selector-attribute-quotes": "always",
+    "color-named": [
+      "never",
+      ignore: ["inside-function"]
+    ],
+    "font-weight-notation": "numeric",
+    "order/properties-alphabetical-order": true,
+    "declaration-empty-line-before": "never",
+    "at-rule-no-unknown": null,
+    "no-descending-specificity": null,
+    "function-comma-newline-after": null,
+    "value-keyword-case": null,
+    "function-no-unknown": null,
+    "selector-class-pattern": null,
+    "property-no-vendor-prefix": null,
+    "no-invalid-position-at-import-rule": null,
+    "number-max-precision": null,
+    "selector-no-vendor-prefix": null,
+    "keyframes-name-pattern": null,
+    "import-notation": null,
+    "selector-not-notation": null
+  }
+}
