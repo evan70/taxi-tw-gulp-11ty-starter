@@ -1,0 +1,12 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Vendors/Lazysizes Overrides
+** ***** ----------------------------------------------- ***** */
+
+.lazyload,
+.lazyloading {
+  @apply u-opacity-0;
+}
+
+.lazyloaded {
+  @apply u-opacity-100 u-transition-opacity u-duration-slow;
+}
