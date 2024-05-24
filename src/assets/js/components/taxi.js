@@ -11,14 +11,14 @@ const setActiveLink = () => {
   const menuItem = document.querySelectorAll('.js-menu-item')
 
   menuItem.forEach((item) => {
-    item.classList.remove('u-text-white')
+    item.classList.remove('text-white')
     if (item.href === location.href) {
-      item.classList.add('u-text-white')
+      item.classList.add('text-white')
     } else {
       const currentItemSlug = item.href.split('/')[3]
       const currentLocationSlug = location.href.split('/')[3]
       if (currentItemSlug === currentLocationSlug)
-        item.classList.add('u-text-white')
+        item.classList.add('text-white')
     }
   })
 }
