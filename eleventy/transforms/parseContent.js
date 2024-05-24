@@ -11,7 +11,7 @@ module.exports = (content, outputPath) => {
     const document = DOM.window.document
 
     // Add lazyload to all article images
-    const articleImages = [...document.querySelectorAll('.u-rich-text img')]
+    const articleImages = [...document.querySelectorAll('.rich-text img')]
     if (articleImages.length) {
       articleImages.forEach((image) => {
         // Set image src to data-src
@@ -25,7 +25,7 @@ module.exports = (content, outputPath) => {
     }
 
     // Wrap video player with container to make size responsive and add lazyload
-    const articleVideos = [...document.querySelectorAll('.u-rich-text iframe')]
+    const articleVideos = [...document.querySelectorAll('.rich-text iframe')]
     if (articleVideos.length) {
       articleVideos.forEach((video) => {
         const videoSrc = video.getAttribute('src')
@@ -47,7 +47,7 @@ module.exports = (content, outputPath) => {
           // Wrap video player with proportional container
           const embedWrapper = document.createElement('div')
           embedWrapper.classList =
-            'u-aspect-w-16 u-aspect-h-9 u-my-30 sm:u-my-40'
+            'aspect-w-16 aspect-h-9 my-30 sm:my-40'
           video.parentNode.insertBefore(embedWrapper, video)
           embedWrapper.appendChild(video)
         }

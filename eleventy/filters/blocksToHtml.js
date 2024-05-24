@@ -14,7 +14,7 @@ const h = blocksToHtml.h
 const serializers = {
   types: {
     imageBlock: (props) =>
-      h('figure', { className: 'u-my-30 md:u-my-40' }, [
+      h('figure', { className: 'my-30 md:my-40' }, [
         h('img', {
           dataset: {
             srcset: imageSrcset(props.node.asset),
@@ -24,7 +24,7 @@ const serializers = {
         }),
         h(
           'figcaption',
-          { class: 'u-mt-10 u-text-12 md:u-text-14' },
+          { class: 'mt-10 text-12 md:text-14' },
           props.node.caption
         ),
       ]),
