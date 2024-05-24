@@ -1,0 +1,33 @@
+---
+layout: page
+bodyClasses: p-articles
+viewName: articles
+pagination:
+  data: articles.all
+  size: 4
+permalink: /articles/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}
+eleventyComputed:
+  title: Articles {% if pagination.pageNumber > 0 %}(Page {{ pagination.pageNumber + 1 }} of {{ pagination.hrefs | length }}){% endif %}
+---
+
+<div class="mt-20 md:mt-40" data-s2r-el="stagger-fade-up" data-s2r-delay="0.2">
+  {% for article in pagination.items %}
+    {% include 'partials/articles/preview.njk' %}
+  {% endfor %}
+</div>
+
+{% if pagination.href.previous or pagination.href.next %}
+  <div class="flex justify-between text-14 uppercase mt-40 md:mt-60" data-s2r-el="block-fade-up" data-s2r-delay="0.7">
+    <div>
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous | absoluteUrl }}">&laquo; Previous Page</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next | absoluteUrl }}">Next Page &raquo;</a>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+  

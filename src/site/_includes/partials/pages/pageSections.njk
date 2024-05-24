@@ -1,0 +1,11 @@
+{% for pageSection in thisPage.pageSections %}
+  {% if not pageSection.disabled %}
+    <section{% if loop.index > 1 %} class="mt-60 md:mt-100"{% endif %}>
+      {% if pageSection._type == 'richTextSection' %}
+        {% include 'partials/pages/richTextSection.njk' %}
+      {% elseif pageSection._type == 'latestArticlesSection' %}
+        {% include 'partials/pages/latestArticles.njk' %}
+      {% endif %}
+    </section>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,76 @@
+---
+layout: default
+bodyClasses: p-article
+viewName: article
+pagination:
+  data: articles.all
+  size: 1
+  alias: article
+permalink: /articles/{{ article.slug }}/
+eleventyComputed:
+  title: "{{ article.title | safe }}"
+  featuredImage: "{% if article.featuredImage %}{% imageUrl article.featuredImage, 1200 %}{% else %}{% endif %}"
+  pageDescription: "{{ article.excerpt | safe }}"
+  metaTitle: "{{ article.articleMetaData.pageTitle | safe }}"
+  metaDescription: "{{ article.articleMetaData.pageDescription | safe }}"
+  metaShareImage: "{% if article.articleMetaData.pageShareImage %}{% imageUrl article.articleMetaData.pageShareImage, 1200 %}{% else %}{% endif %}"
+---
+
+<div class="l-container l-container--small" data-s2r="single" data-s2r-type="stagger-fade-up">
+  <article>
+
+    {% if article.featuredImage %}
+      <figure class="mb-20 md:mb-40" data-s2r-el>
+        <img data-srcset="{% imageSrcset article.featuredImage %}" class="lazyload" data-sizes="auto">
+      </figure>
+    {% endif %}
+
+    <header>
+      {% if article.title %}
+        <h1 class="h2 text-grey-light-c" data-s2r-el>{{ article.title }}</h1>
+      {% endif %}
+
+      <div class="mt-5" data-s2r-el>
+        <time class="text-14 uppercase" datetime="{{ article.publishedAt | htmlDate }}">{{ article.publishedAt | readableDate }}</time>
+        {% if article.categories.length %}
+          <span>/</span>
+          <span class="text-14 uppercase">
+            Categories:
+            {% for category in article.categories %}
+              <a href="{{ category.slug | articleCategoryUrl }}">{{ category.title }}</a>
+              {%- if not loop.last -%}, {%- endif -%}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if article.featuredImage %}
+      <figure class="mt-30 mb-20 md:mb-40 md:mt-30" data-s2r-el>
+        <img data-srcset="{% imageSrcset article.featuredImage %}" class="lazyload" data-sizes="auto">
+      </figure>
+    {% endif %}
+
+    {% if article.mainContent %}
+      <div class="rich-text mt-30" data-s2r-el>
+        {{ article.mainContent | blocksToHtml | safe }}
+      </div>
+    {% endif %}
+
+  </article>
+
+  {% if article.previousArticle or article.nextArticle %}
+    <div class="flex justify-between text-14 uppercase mt-40 md:mt-60" data-s2r-el>
+      <div>
+        {% if article.previousArticle %}
+          <a href="{{ article.previousArticle.slug | articleUrl }}">&laquo; Previous Article</a>
+        {% endif %}
+      </div>
+      <div>
+        {% if article.nextArticle %}
+          <a href="{{ article.nextArticle.slug | articleUrl }}">Next Article &raquo;</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>

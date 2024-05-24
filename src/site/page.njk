@@ -1,0 +1,15 @@
+---
+layout: default
+bodyClasses: p-page
+viewName: page
+pagination:
+  data: pages
+  size: 1
+  alias: thisPage
+permalink: /{% if thisPage.slug == 'index' %}index.html{% else %}{{ thisPage.slug }}/{% endif %}
+eleventyComputed:
+  title: "{{ thisPage.title | safe }}"
+  metaTitle: "{{ thisPage.pageMetaData.pageTitle | safe }}"
+  metaDescription: "{{ thisPage.pageMetaData.pageDescription | safe }}"
+  metaShareImage: "{% if thisPage.pageMetaData.pageShareImage %}{% imageUrl thisPage.pageMetaData.pageShareImage, 1200 %}{% else %}{% endif %}"
+---

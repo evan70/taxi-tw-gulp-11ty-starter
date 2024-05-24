@@ -1,0 +1,18 @@
+---
+layout: base
+---
+
+{% include 'partials/global/header.njk' %}
+
+<main class="flex-1 py-40 sm:py-80" role="main" data-taxi>
+  <div data-taxi-view>
+    {% if thisPage.pageSections %}
+      {% include 'partials/pages/pageSections.njk' %}
+    {% else %}
+      {{ content | safe }}
+    {% endif %}
+  </div>
+</main>
+
+{% include 'partials/global/footer.njk' %}
+{% include 'partials/global/menuOverlay.njk' %}

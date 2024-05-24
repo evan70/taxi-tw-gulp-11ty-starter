@@ -1,0 +1,31 @@
+<html class="h-full" lang="en-US">
+
+<head>
+
+{% include 'partials/global/meta.njk' %}
+
+<link rel="canonical" href="{{ page.url | absoluteUrl }}">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.min.css' | absoluteUrl | cacheBust }}">
+
+{# {% if settings.analytics.googleAnalyticsId and env == 'production' %}
+  <script async src="//www.googletagmanager.com/gtag/js?id={{ settings.analytics.googleAnalyticsId }}"></script>
+  <script>
+    const gaId = '{{ settings.analytics.googleAnalyticsId }}';
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ settings.analytics.googleAnalyticsId }}');
+  </script>
+{% endif %} #}
+
+</head>
+
+<body class="flex flex-col h-full text-body text-grey-light-a js-body {{ bodyClasses }}" x-data :class="$store.menuOverlay.isOpen && 'overflow-hidden'">
+
+{{ content | safe }}
+
+<script src="{{ '/assets/js/main.min.js' | absoluteUrl | cacheBust }}"></script>
+
+</body>
+</html>

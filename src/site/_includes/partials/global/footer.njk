@@ -1,0 +1,46 @@
+<footer class="bg-grey-dark-1 py-40 text-center sm:py-60" role="contentinfo">
+  <div class="l-container">
+    <a href="{{ '/' | absoluteUrl }}" aria-label="{{ settings.seo.siteName }}">
+      {% svg 'icon-responsive', '0 0 50 50', 'w-40' %}
+    </a>
+    {% if sections.footer.menu %}
+      <nav class="mt-40">
+        <ul>
+          {% for menuItem in sections.footer.menu %}
+            <li class="inline-block mx-10 md:mx-20">
+              <a href="{{ menuItem.url | absoluteUrl }}" class="inline-block font-heading text-14 uppercase{% isSamePageOrSection menuItem.url, page.url, ' text-white' %} js-menuItem"{% if menuItem.openInNewTab %} target="_blank"{% endif %}>{{ menuItem.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+    {% if settings.social.socialSites %}
+      <nav class="mt-40">
+        <ul>
+          {% for socialSite in settings.social.socialSites %}
+            <li class="inline-block mx-5 md:mx-10">
+              {% if socialSite.facebookUrl %}
+                <a href="{{ socialSite.facebookUrl }}" class="inline-block" target="_blank" rel="noopener" aria-label="Like On Facebook">
+                  {% svg 'icon-facebook', '0 0 50 50', 'w-30' %}
+                </a>
+              {% elseif socialSite.twitterUrl %}
+                <a href="{{ socialSite.twitterUrl }}" class="inline-block" target="_blank" rel="noopener" aria-label="Follow On Twitter">
+                  {% svg 'icon-twitter', '0 0 50 50', 'w-30' %}
+                </a>
+              {% elseif socialSite.instagramUrl %}
+                <a href="{{ socialSite.instagramUrl }}" class="inline-block" target="_blank" rel="noopener" aria-label="Follow On Instagram">
+                  {% svg 'icon-instagram', '0 0 50 50', 'w-30' %}
+                </a>
+              {% elseif socialSite.youtubeUrl %}
+                <a href="{{ socialSite.youtubeUrl }}" class="inline-block" target="_blank" rel="noopener" aria-label="Subscribe On YouTube">
+                  {% svg 'icon-youtube', '0 0 50 50', 'w-30' %}
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+    <p class="mt-40 text-12 uppercase">&copy; {% currentYear %} responsive. All Rights Reserved.</p>
+  </div>
+</footer>

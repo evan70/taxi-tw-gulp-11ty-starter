@@ -1,0 +1,12 @@
+<div class="l-container l-container--small" data-s2r="group">
+  {% if pageSection.heading %}
+    <header>
+      <h1 class="h2 text-grey-light-c" data-s2r-el="block-fade-up">{{ pageSection.heading }}</h1>
+    </header>
+  {% endif %}
+  {% if pageSection.mainContent %}
+    <div class="rich-text mt-20 md:mt-40" data-s2r-el="stagger-fade-up" data-s2r-delay="0.2">
+      {{ pageSection.mainContent | blocksToHtml | safe }}
+    </div>
+  {% endif %}
+</div>

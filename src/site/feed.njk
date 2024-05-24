@@ -1,0 +1,30 @@
+---
+permalink: feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ settings.seo.siteName }}</title>
+  <subtitle>{{ settings.seo.siteDescription }}</subtitle>
+  <link href="{{ '/feed.xml' | absoluteUrl }}" rel="self"/>
+  <link href="{{ '/' | absoluteUrl }}"/>
+  {% if articles.all %}
+    <updated>{{ articles.all | rssLastUpdatedDate }}</updated>
+  {% endif %}
+  <id>{{ '/' | absoluteUrl }}</id>
+  <author>
+    <name>{{ settings.seo.siteName }}</name>
+  </author>
+  {%- for article in articles.all %}
+    <entry>
+      <title>{{ article.title }}</title>
+      <link href="{{ article.slug | articleUrl }}"/>
+      <updated>{{ article.publishedAt | rssDate }}</updated>
+      <id>{{ article.slug | articleUrl }}</id>
+      {% if article.mainContent %}
+        <content type="html"><![CDATA[
+          {{ article.mainContent | blocksToHtml | safe }}
+        ]]></content>
+        {% endif %}
+    </entry>
+  {%- endfor %}
+</feed>

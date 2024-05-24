@@ -1,0 +1,33 @@
+<article{% if loop.index > 1 %} class="mt-30 md:mt-50"{% endif %}>
+
+  <header>
+    {% if article.title %}
+      <h2 class="h4"><a href="{{ article.slug | articleUrl }}" class="text-grey-light-a">{{ article.title }}</a></h2>
+    {% endif %}
+
+    {% if article.featuredImage %}
+      <figure class="mb-20 md:mb-40" data-s2r-el>
+        <img data-srcset="{% imageSrcset article.featuredImage %}" class="lazyload" data-sizes="auto">
+      </figure>
+    {% endif %}
+
+    <div class="mt-5">
+      <time class="text-14 uppercase" datetime="{{ article.publishedAt | htmlDate }}">{{ article.publishedAt | readableDate }}</time>
+      {% if article.categories.length %}
+        <span>/</span>
+        <span class="uppercase text-14">
+          Categories:
+          {% for category in article.categories %}
+            <a href="{{ category.slug | articleCategoryUrl }}">{{ category.title }}</a>
+            {%- if not loop.last -%}, {%- endif -%}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if article.excerpt %}
+    <p class="mt-20">{{ article.excerpt }}</p>
+  {% endif %}
+
+</article>

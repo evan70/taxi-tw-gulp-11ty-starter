@@ -1,0 +1,86 @@
+{% set pageTitle = title + ' | ' + settings.seo.siteName %}
+{% set shareTitle = title %}
+{% set pageDescription = pageDescription or settings.seo.siteDescription %}
+{% set shareImage %}{% imageUrl settings.seo.siteShareImage, 1200 %}{% endset %}
+
+{% if metaTitle %}
+  {% set pageTitle = metaTitle %}
+  {% set shareTitle = metaTitle %}
+{% endif %}
+
+{% if metaDescription %}
+  {% set pageDescription = metaDescription %}
+{% endif %}
+
+{% if featuredImage %}
+  {% set shareImage = featuredImage %}
+{% endif %}
+
+{% if metaShareImage %}
+  {% set shareImage = metaShareImage %}
+{% endif %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta name="description" content="{{ pageDescription }}">
+
+<title>{{ pageTitle }}</title>
+
+{% if settings.favicons.favicon %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{% imageUrl settings.favicons.favicon, 32 %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% imageUrl settings.favicons.favicon, 16 %}">
+{% endif %}
+
+{% if settings.favicons.appleTouchIcon %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{% imageUrl settings.favicons.appleTouchIcon, 180 %}">
+  <meta name="msapplication-TileImage" content="{% imageUrl settings.favicons.appleTouchIcon, 144 %}">
+{% endif %}
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#212121">
+<meta name="application-name" content="{{ settings.seo.siteName }}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="{{ settings.seo.siteName }}">
+<meta name="msapplication-TileColor" content="#212121">
+
+<meta property="og:title" content="{{ shareTitle }}">
+<meta property="og:site_name" content="{{ settings.seo.siteName }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ page.url | absoluteUrl }}">
+<meta property="og:image" content="{{ shareImage }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ shareTitle }}">
+<meta name="twitter:url" content="{{ page.url | absoluteUrl }}">
+<meta name="twitter:description" content="{{ pageDescription }}">
+<meta name="twitter:image" content="{{ shareImage }}">
+{% if settings.social.twitterHandle %}
+  <meta name="twitter:site" content="{{ settings.social.twitterHandle }}">
+  <meta name="twitter:creator" content="{{ settings.social.twitterHandle }}"/>
+{% endif %}
+
+{% if 'p-home' in bodyClasses %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "email": "hello@responsive.com",
+      "image": "{{ '/assets/images/headshot.jpg' | absoluteUrl }}",
+      "jobTitle": "Freelance Creative Developer",
+      "name": "Matt Lee",
+      "gender": "male",
+      "url": "http://responsive.com",
+      "sameAs": [ 
+        "https://www.facebook.com/responsive",
+        "https://twitter.com/responsive",
+        "https://www.instagram.com/responsive",
+        "https://www.linkedin.com/in/responsive",
+        "https://github.com/responsive"
+      ]
+    }
+  </script>
+{% endif %}

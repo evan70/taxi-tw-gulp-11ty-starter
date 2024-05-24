@@ -1,0 +1,25 @@
+<header class="bg-black py-20 z-header" role="banner">
+  <div class="l-container flex items-center justify-between">
+    <h1>
+      <a href="{{ '/' | absoluteUrl }}" class="xs:flex xs:items-center" aria-label="responsive.sk" x-data @click="$store.menuOverlay.close()">
+        {% svg 'icon-responsive', '0 0 50 50', 'block w-40' %}
+        <span class="hidden uppercase md:block md:text-22 md:ml-10">responsive.sk</span>
+      </a>
+    </h1>
+    <button class="font-heading text-16 font-bold uppercase relative sm:hidden" type="button" x-data @click="$store.menuOverlay.toggle()">
+      <span x-data x-show="!$store.menuOverlay.isOpen">Menu</span>
+      <span x-data x-show="$store.menuOverlay.isOpen">Close</span>
+    </button>
+    {% if sections.header.menu %}
+      <nav class="hidden sm:block">
+        <ul>
+          {% for menuItem in sections.header.menu %}
+            <li class="inline-block {% if loop.index > 1 %} ml-20 md:ml-40{% endif %}">
+              <a href="{{ menuItem.url | absoluteUrl }}" class="inline-block font-heading text-14 uppercase{% isSamePageOrSection menuItem.url, page.url, ' text-white' %} js-menu-item"{% if menuItem.openInNewTab %} target="_blank"{% endif %}>{{ menuItem.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+</header>

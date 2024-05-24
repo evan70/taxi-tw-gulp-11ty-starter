@@ -1,0 +1,42 @@
+<section class="bg-black fixed inset-0 w-full h-full overflow-hidden z-menoverlay flex flex-col pt-80 pb-40 sm:hidden" x-data x-show="$store.menuOverlay.isOpen" x-transition.opacity.duration.500ms>
+  <div class="flex-1 flex justify-center items-center">
+    {% if sections.header.menu %}
+      <nav>
+        <ul >
+          {% for menuItem in sections.header.menu %}
+            <li class="my-15 text-center">
+              <a href="{{ menuItem.url | absoluteUrl }}" class="inline-block font-heading uppercase text-16{% isSamePageOrSection menuItem.url, page.url, ' text-white' %} js-menu-item"{% if menuItem.openInNewTab %} target="_blank"{% endif %} x-data @click="$store.menuOverlay.toggle()">{{ menuItem.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+  {% if settings.social.socialSites %}
+    <nav>
+      <ul class="mt-20 text-center">
+        {% for socialSite in settings.social.socialSites %}
+          <li class="inline-block mx-5 md:mx10">
+            {% if socialSite.facebookUrl %}
+              <a href="{{ socialSite.facebookUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Like On Facebook">
+                {% svg 'icon-facebook', '0 0 50 50', 'w-30' %}
+              </a>
+            {% elseif socialSite.twitterUrl %}
+              <a href="{{ socialSite.twitterUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Follow On Twitter">
+                {% svg 'icon-twitter', '0 0 50 50', 'w-30' %}
+              </a>
+            {% elseif socialSite.instagramUrl %}
+              <a href="{{ socialSite.instagramUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Follow On Instagram">
+                {% svg 'icon-instagram', '0 0 50 50', 'w-30' %}
+              </a>
+            {% elseif socialSite.youtubeUrl %}
+              <a href="{{ socialSite.youtubeUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Subscribe On YouTube">
+                {% svg 'icon-youtube', '0 0 50 50', 'w-30' %}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+</section>
