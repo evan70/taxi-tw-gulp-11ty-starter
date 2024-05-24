@@ -4,7 +4,7 @@
 
 @layer utilities {
   .l-container {
-    @apply u-w-full u-mx-auto u-px-30 u-relative sm:u-px-50;
+    @apply w-full mx-auto px-30 relative sm:px-50;
     max-width: 128rem;
 
     &--small {

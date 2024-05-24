@@ -11,5 +11,5 @@
 [data-s2r-el='stagger-fade-in'] > *,
 [data-s2r-type='stagger-fade-up-children'] > *,
 [data-s2r-type='stagger-fade-in-children'] > * {
-  @apply u-opacity-0;
+  @apply opacity-0;
 }

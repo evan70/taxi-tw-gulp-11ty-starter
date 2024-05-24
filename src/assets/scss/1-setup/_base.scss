@@ -3,12 +3,12 @@
 ** ***** ----------------------------------------------- ***** */
 
 :root {
-  @apply u-bg-grey-dark-2;
+  @apply bg-grey-dark-2;
   font-size: 62.5%;
 }
 
 *::selection {
-  @apply u-bg-grey-light-a u-text-white;
+  @apply bg-grey-light-a text-white;
 }
 
 html {
@@ -22,19 +22,19 @@ body {
 }
 
 a {
-  @apply u-text-grey-light-c hover:u-text-grey-dark-6 active:u-text-grey-light-c u-no-underline
-    u-transition-colors u-duration-slow;
+  @apply text-grey-light-c hover:text-grey-dark-6 active:text-grey-light-c no-underline
+    transition-colors duration-slow;
 }
 
 button {
-  @apply u-text-body;
+  @apply text-body;
 }
 
 svg {
-  @apply u-inline-block u-fill-current;
+  @apply inline-block fill-current;
 }
 
 input,
 textarea {
-  @apply u-bg-transparent u-text-body u-rounded-none u-outline-none focus-visible:u-outline-none;
+  @apply bg-transparent text-body rounded-none outline-none focus-visible:outline-none;
 }

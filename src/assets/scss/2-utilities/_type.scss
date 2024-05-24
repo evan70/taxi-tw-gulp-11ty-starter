@@ -9,52 +9,52 @@
   h4,
   h5,
   h6,
-  .u-h1,
-  .u-h2,
-  .u-h3,
-  .u-h4,
-  .u-h5,
-  .u-h6 {
-    @apply u-font-heading u-font-bold;
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    @apply font-heading font-bold;
     text-rendering: optimizeLegibility;
   }
 
-  .u-h1 {
-    @apply u-text-36 sm:u-text-48;
+  .h1 {
+    @apply text-36 sm:text-48;
   }
 
-  .u-h2 {
-    @apply u-text-30 sm:u-text-36;
+  .h2 {
+    @apply text-30 sm:text-36;
   }
 
-  .u-h3 {
-    @apply u-text-24 sm:u-text-28;
+  .h3 {
+    @apply text-24 sm:text-28;
   }
 
-  .u-h4 {
-    @apply u-text-18 sm:u-text-24;
+  .h4 {
+    @apply text-18 sm:text-24;
   }
 
-  .u-h5 {
-    @apply u-text-14 sm:u-text-18;
+  .h5 {
+    @apply text-14 sm:text-18;
   }
 
-  .u-h6 {
-    @apply u-text-12 sm:u-text-14;
+  .h6 {
+    @apply text-12 sm:text-14;
   }
 
-  .u-text-body {
-    @apply u-font-body u-leading-normal u-text-14 sm:u-text-16;
+  .text-body {
+    @apply font-body leading-normal text-14 sm:text-16;
   }
 
-  .u-rich-text {
+  .rich-text {
     > * {
       &:first-child {
-        @apply u-mt-0;
+        @apply mt-0;
       }
 
       &:last-child {
-        @apply u-mb-0;
+        @apply mb-0;
       }
     }
 
@@ -64,23 +64,23 @@
     h4,
     h5,
     h6 {
-      @apply u-mb-10;
+      @apply mb-10;
     }
 
     h1 {
-      @apply u-text-36 sm:u-text-48;
+      @apply text-36 sm:text-48;
     }
 
     h2 {
-      @apply u-text-30 sm:u-text-36;
+      @apply text-30 sm:text-36;
     }
 
     h3 {
-      @apply u-text-24 sm:u-text-28;
+      @apply text-24 sm:text-28;
     }
 
     h4 {
-      @apply u-text-18 sm:u-text-24;
+      @apply text-18 sm:text-24;
     }
 
     * + h1,
@@ -89,41 +89,41 @@
     * + h4,
     * + h5,
     * + h6 {
-      @apply u-mt-30 sm:u-mt-35;
+      @apply mt-30 sm:mt-35;
     }
 
     a {
-      @apply u-underline;
+      @apply underline;
     }
 
     p {
-      @apply u-leading-loose u-my-20 sm:u-my-30;
+      @apply leading-loose my-20 sm:my-30;
     }
 
     ul,
     ol {
-      @apply u-leading-loose u-mt-20 u-mr-0 u-mb-20 u-ml-30 sm:u-mt-25 sm:u-mb-25 sm:u-ml-35;
+      @apply leading-loose mt-20 mr-0 mb-20 ml-30 sm:mt-25 sm:mb-25 sm:ml-35;
 
       ul,
       ol {
-        @apply u-mt-5 u-mr-0 u-mb-5 u-ml-35;
+        @apply mt-5 mr-0 mb-5 ml-35;
       }
     }
 
     ul {
-      @apply u-list-disc;
+      @apply list-disc;
     }
 
     ol {
-      @apply u-list-decimal;
+      @apply list-decimal;
     }
 
     blockquote {
-      @apply u-border-l-2 u-my-30 u-mx-20 u-pl-30;
+      @apply border-l-2 my-30 mx-20 pl-30;
     }
 
     .o-button {
-      @apply u-no-underline;
+      @apply no-underline;
     }
   }
 }
