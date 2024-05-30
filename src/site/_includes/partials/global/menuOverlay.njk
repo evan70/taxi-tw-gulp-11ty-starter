@@ -17,9 +17,9 @@
       <ul class="mt-20 text-center">
         {% for socialSite in settings.social.socialSites %}
           <li class="inline-block mx-5 md:mx10">
-            {% if socialSite.facebookUrl %}
-              <a href="{{ socialSite.facebookUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Like On Facebook">
-                {% svg 'icon-facebook', '0 0 50 50', 'w-30' %}
+            {% if socialSite.telegramUrl %}
+              <a href="{{ socialSite.telegramUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Like On Telegram">
+                {% svg 'icon-telegram', '0 0 50 50', 'w-30' %}
               </a>
             {% elseif socialSite.twitterUrl %}
               <a href="{{ socialSite.twitterUrl }}" class="inlineBlock" target="_blank" rel="noopener" aria-label="Follow On Twitter">
