@@ -4,6 +4,7 @@ const filter = `
   *[_type == "settingsSocial" && !(_id in path('drafts.**'))]{
     socialSites[] {
       facebookUrl,
+      telegramUrl,
       twitterUrl,
       instagramUrl,
       youtubeUrl
