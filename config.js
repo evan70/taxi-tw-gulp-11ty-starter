@@ -1,6 +1,8 @@
 module.exports = {
   sanity: {
     projectId: 'afxi85wm',
+    //projectId: 'qumizoz5',
+
     dataset: 'production',
     apiVersion: '2022-05-01',
     useCdn: true,
